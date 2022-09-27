@@ -3,6 +3,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 
+body{
+  color: #fff;
+  background-color: #2c4055;
+}
 .hoverwell:hover {
   background-color: #485563;
   cursor: pointer;
