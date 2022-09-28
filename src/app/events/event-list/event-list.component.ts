@@ -1,4 +1,3 @@
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../shared/events.service';
 
@@ -18,11 +17,6 @@ export class EventListComponent implements OnInit {
   ngOnInit(): void {
     this.events = this.eventService.getEvents();
   }
-
-  // handleBtnClick(data: any){
-  //   console.log('received:', data);
-  // }
-
 
   handleThumbnailClick(eventName: string){
     toastr.success(eventName);
