@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../shared/events.service';
 
 @Component({
   selector: 'app-event-details',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventDetailsComponent implements OnInit {
 
-  constructor() { }
+  event: any
+  constructor(private eventService: EventsService) { }
 
   ngOnInit(): void {
+    this.event = this.eventService.getEvent(1)
   }
 
 }

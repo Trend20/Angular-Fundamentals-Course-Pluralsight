@@ -7,9 +7,16 @@ export class EventsService {
 
   constructor() { }
 
+  // getting all events
   getEvents(){
     return events;
   }
+
+  // getting a single event
+  getEvent(id:number){
+    return events.find(event => event.id === id);
+  }
+
 }
 
 const events = [
