@@ -1,13 +1,15 @@
 <div class="well hoverwell thumbnail">
   <h2>{{ event.name }}</h2>
   <div>Date: {{ event.date }}</div>
-  <div>Time: {{ event.time }}</div>
+  <div [ngSwitch]="event?.time">Time: {{ event.time }}
+    <span *ngSwitchCase="'8:00 am'">(Early event)</span>
+    <span *ngSwitchCase="'10:00 am'">(Late event)</span>
+    <span *ngSwitchDefault>(Normal event)</span>
+  </div>
   <div>Price: {{ event.price }}</div>
   <div>
     <span>Location: {{ event.location.address }}</span>
     <span>&nbsp;</span>
     <span>{{ event.location.city }}, {{ event.location.country }}</span>
   </div>
-  <button class="btn btn-primary">Click me!</button>
-  <!-- (click)="handleClickMe()" -->
 </div>
