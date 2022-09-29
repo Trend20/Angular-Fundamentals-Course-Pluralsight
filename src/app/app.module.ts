@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { NewEventComponent } from './events/new-event/new-event.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { EventsService } from './events/shared/events.service';
+import { ToastrService } from './common/toastr.service';
+import { EventRouteActivatorService } from './services/event-route-activator.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,22 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    EventsService,
+    ToastrService,
+    EventRouteActivatorService,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function checkDirtyState(component: NewEventComponent){
+  if(component.isDirty){
+    return window.confirm('You have not save the content, do you want to leave the page or cancel?')
+  }
+  return true
+}

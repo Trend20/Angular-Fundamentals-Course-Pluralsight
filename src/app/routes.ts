@@ -3,11 +3,13 @@ import { NotFoundComponent } from "./errors/not-found/not-found.component";
 import { EventDetailsComponent } from "./events/event-details/event-details.component";
 import { EventListComponent } from "./events/event-list/event-list.component";
 import { NewEventComponent } from "./events/new-event/new-event.component";
+import { EventRouteActivatorService } from "./services/event-route-activator.service";
 
 export const appRoutes: Routes =[
   {
     path: 'events/new',
-    component: NewEventComponent
+    component: NewEventComponent,
+    canDeactivate: ['canDeactivateCreateEvent']
   },
   {
     path: 'events',
@@ -15,7 +17,8 @@ export const appRoutes: Routes =[
   },
   {
     path: 'events/:id',
-    component: EventDetailsComponent
+    component: EventDetailsComponent,
+    canActivate: [EventRouteActivatorService]
   },
   {
     path: '404',
