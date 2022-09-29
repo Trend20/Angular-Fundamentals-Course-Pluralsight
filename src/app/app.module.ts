@@ -8,6 +8,7 @@ import { NavComponent } from './nav/nav/nav.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { NewEventComponent } from './events/new-event/new-event.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { appRoutes } from './routes';
     EventListComponent,
     EventThumbnailComponent,
     NavComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,
