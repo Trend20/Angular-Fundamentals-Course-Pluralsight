@@ -10,12 +10,12 @@ import { EventsService } from '../shared/events.service';
 })
 export class EventListComponent implements OnInit {
 
-  events: any[] =[];
+  events: any
 
   constructor(private eventService: EventsService, private toastrService: ToastrService) {}
 
   ngOnInit(): void {
-    this.events = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe(events => {this.events = events})
   }
 
   handleThumbnailClick(eventName: string){
