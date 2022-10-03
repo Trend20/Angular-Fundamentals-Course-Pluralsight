@@ -13,6 +13,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { EventsService } from './events/shared/events.service';
 import { ToastrService } from './common/toastr.service';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
+import { EventListResolverService } from './services/event-list-resolver.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EventRouteActivatorService } from './services/event-route-activator.ser
     EventsService,
     ToastrService,
     EventRouteActivatorService,
+    EventListResolverService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState

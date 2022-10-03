@@ -3,6 +3,7 @@ import { NotFoundComponent } from "./errors/not-found/not-found.component";
 import { EventDetailsComponent } from "./events/event-details/event-details.component";
 import { EventListComponent } from "./events/event-list/event-list.component";
 import { NewEventComponent } from "./events/new-event/new-event.component";
+import { EventListResolverService } from "./services/event-list-resolver.service";
 import { EventRouteActivatorService } from "./services/event-route-activator.service";
 
 export const appRoutes: Routes =[
@@ -13,7 +14,10 @@ export const appRoutes: Routes =[
   },
   {
     path: 'events',
-    component: EventListComponent
+    component: EventListComponent,
+    resolve: {
+      events: EventListResolverService
+    }
   },
   {
     path: 'events/:id',
