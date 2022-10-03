@@ -14,6 +14,7 @@ import { EventsService } from './events/shared/events.service';
 import { ToastrService } from './common/toastr.service';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
 import { EventListResolverService } from './services/event-list-resolver.service';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EventListResolverService } from './services/event-list-resolver.service
     NavComponent,
     EventDetailsComponent,
     NewEventComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
